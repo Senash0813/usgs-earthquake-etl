@@ -1,4 +1,4 @@
-# Earthquake ETL Pipeline — USGS → GCP
+# Earthquake ETL Pipeline - USGS → GCP
 
 A hands-on data engineering project that builds an end-to-end **ETL pipeline**: it extracts earthquake data from the public USGS API, stages the raw response, transforms it into clean analytics-ready tables, and loads it into a data warehouse for visualization. The whole flow is orchestrated with **Apache Airflow** running locally, and lands in **Google Cloud Platform**.
 
