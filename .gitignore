@@ -1,1 +1,8 @@
-/CLAUDE.md
+.env
+/venv/
+PLAN.md
+sample.json
+/data/
+/config/earthquake-etl-502816-2e6e714cea4a.json
+dags/__pycache__/
+dags/tasks/__pycache__/
