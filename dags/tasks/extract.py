@@ -13,6 +13,8 @@ def extract_data():
     bucket_name = "earthquake-etl-bookmark-1"
     blob_name = "last_saved_date.txt"
 
+    target = "/opt/airflow/data/local_copy.json"
+
     # Get the last saved date from GCS
     startdate = get_saved_date(bucket_name, blob_name)
     enddate = datetime.today().strftime('%Y-%m-%d')
@@ -54,6 +56,10 @@ def extract_data():
     else:
         max_date_utc = None
 
-    return resp.text
+    # Save the response to a local file
+    with open(target, "w") as f:
+        f.write(resp.text)
+
+    return {"max_date": max_date_utc, "local_file_path": target}
 
     
