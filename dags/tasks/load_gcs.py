@@ -19,7 +19,7 @@ def get_saved_date(bucket_name, blob_name):
         logger.info(f"Found existing blob: {blob_name}")
         return blob.download_as_text()
     else:
-        return '2026-07-25'
+        return '2026-08-12'
 
 
 
@@ -49,9 +49,11 @@ def save_data_to_gcs(ti):
     logger.info(f"Data uploaded to GCS bucket!")
 
     os.remove(local_file_path)
-    logger.info(f"Local file removed after upload.")
+    logger.info("Local file removed after upload.")
 
     save_max_date(max_date) #function call to save the max date to GCS
+
+    return{"blob_name": blob_name, "bucket_name": bucket_name}
 
 
 def save_max_date(max_date):
